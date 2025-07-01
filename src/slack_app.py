@@ -1,9 +1,15 @@
 import os
+import nltk
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from dotenv import load_dotenv
 from chatbot_engine import chat, create_index
 from langchain.memory import ChatMessageHistory
+
+# NLTKの辞書の場所を教える
+nltk_path = os.path.join(os.path.dirname(__file__), "../nltk_data")
+nltk.data.path.append(os.path.abspath(nltk_path))
+
 
 load_dotenv()
 
